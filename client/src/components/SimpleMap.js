@@ -1,6 +1,7 @@
 import { React, useContext, useState } from "react";
 import GoogleMapReact from 'google-map-react';
 import Marker from "./Marker";
+import LocationPin from "./LocationPin";
 import CurrentLocation from "./CurrentLocation";
 // import dotenv from "dotenv"
 // dotenv.config()
@@ -39,7 +40,7 @@ export default function SimpleMap(props){
  };
 
   const userLocation = userData.map((user, index) => {
-    return(<Marker
+    return(<LocationPin
       key={index}
       lat={user.lat}
       lng={user.lng}
@@ -52,7 +53,7 @@ export default function SimpleMap(props){
     // Important! Always set the container height explicitly
     <div style={{ height: '100vh', width: '100%' }}>
       <GoogleMapReact
-        bootstrapURLKeys={{ key: "API_KEY" }}
+        bootstrapURLKeys={{ key: "AIzaSyBy8PE1nwqIDNQSU48JplZpUxSeW1TwjFY" }}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
       >
