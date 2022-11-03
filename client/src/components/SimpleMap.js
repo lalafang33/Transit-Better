@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useContext, useState } from "react";
 import GoogleMapReact from 'google-map-react';
 import Marker from "./Marker";
 import DirectionForm from "./DirectionForm";
@@ -6,7 +6,9 @@ import { useRef } from "react";
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
-export default function SimpleMap(){
+export default function SimpleMap(props){
+
+
   const defaultProps = {
     center: {
       lat: 49.2712,
@@ -14,6 +16,33 @@ export default function SimpleMap(){
     },
     zoom: 11
   };
+
+  const nearbyStations = props.nearbyStations.map((station, index) => {
+    return(<Marker
+    key={index}
+    lat={station.place.location.lat}
+    lng={station.place.location.lng}
+    text={station.place.name}
+    />)
+  })
+
+  let userData = [];
+
+  if (props.userLat && props.userLong) {
+
+  userData = [{lat: props.userLat, lng: props.userLong }]
+
+ };
+
+  const userLocation = userData.map((user, index) => {
+    return(<Marker
+      key={index}
+      lat={user.lat}
+      lng={user.lng}
+      text="Current Location"
+      />)
+  })
+
 
     const inputEl = useRef(null);
   
@@ -28,9 +57,9 @@ export default function SimpleMap(){
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
       >
-        <Marker
-          lat={49.259832294}
-          lng={-123.109499562}
+        <AnyReactComponent
+          lat={59.955413}
+          lng={30.337844}
           text="My Marker"
         />
       </GoogleMapReact>

@@ -8,8 +8,8 @@ const Wrapper = styled.div`
   left: 50%;
   width: 18px;
   height: 18px;
-  background-color: #000;
-  border: 2px solid #fff;
+  background-color: red;
+  border: 2px solid purple;
   border-radius: 100%;
   user-select: none;
   transform: translate(-50%, -50%);

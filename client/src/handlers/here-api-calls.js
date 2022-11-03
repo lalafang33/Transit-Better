@@ -2,7 +2,7 @@ const axios = require('axios')
 
 // THIS HAS NOT BEEN IMPORTED ANYWHERE AND WILL NEED TO BE PROPERLY HOOKED UP IN THE FUTURE
 
-const apiKey = ""; // INSERT API KEY HERE OR SET UP .ENV DO NOT PUSH APIKEY TO GITHUB
+const apiKey = "HERE-APIKEY"; // INSERT API KEY HERE OR SET UP .ENV DO NOT PUSH APIKEY TO GITHUB
 
 const getStationSchedule = () => {
   const ids = 414524706;
@@ -25,6 +25,8 @@ const getNearbyStations = () => {
       }
     })
 }
+
+getNearbyStations()
 
 module.exports = {
   getStationSchedule,
