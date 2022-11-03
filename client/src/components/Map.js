@@ -1,21 +1,17 @@
 import { GoogleMap, useLoadScript } from '@react-google-maps/api';
 const libraries = ["places"]
 
-export default function Map() {
-// Loads the map using API KEY
-const { isLoaded } = useLoadScript({
-    googleMapsApiKey: "INSERT API KEY HERE",
-    libraries
-});
-// This returns while map is being loaded
-if (!isLoaded) return <div>Loading...</div>
-return (
-    <>
-      <GoogleMap 
-          zoom={9}
-          center={{lat: -74, lng: 40.7}} 
-          mapContainerClassName='map-container'
-      />
-    </>
-    )
-}
+export class Container extends React.Component {
+    render() {
+      if (!this.props.loaded) {
+        return <div>Loading...</div>
+      }
+      return (
+        <div>Map will go here</div>
+      )
+    }
+  }
+  
+  export default GoogleApiComponent({
+    apiKey: __GAPI_KEY__
+  })(Container)
