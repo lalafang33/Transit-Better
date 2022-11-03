@@ -3,9 +3,8 @@ function initMap() {
   const directionsService = new google.maps.DirectionsService();
   const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 14, 
-    center: {lat:49.2573798, lng:-123.4109806},
+    center: {lat:49.2712, lng:-123.1340},
   }); 
-
   directionsRenderer.setMap(map);
 
   document.getElementById("mode").addEventListener("change", () => {
