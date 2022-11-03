@@ -1,6 +1,8 @@
 import { React, useContext, useState } from "react";
 import GoogleMapReact from 'google-map-react';
 import Marker from "./Marker";
+import DirectionForm from "./DirectionForm";
+import { useRef } from "react";
 import LocationPin from "./LocationPin";
 import CurrentLocation from "./CurrentLocation";
 // import dotenv from "dotenv"
@@ -49,17 +51,23 @@ export default function SimpleMap(props){
   })
 
 
+    const inputEl = useRef(null);
+  
+
+
   return (
     // Important! Always set the container height explicitly
     <div style={{ height: '100vh', width: '100%' }}>
       <GoogleMapReact
+        ref={inputEl}
         bootstrapURLKeys={{ key: "AIzaSyBy8PE1nwqIDNQSU48JplZpUxSeW1TwjFY" }}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
       >
-        {nearbyStations}
-        {userLocation}
       </GoogleMapReact>
+      <DirectionForm
+        map={inputEl}
+      />
     </div>
   );
 }
