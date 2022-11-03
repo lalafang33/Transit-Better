@@ -60,10 +60,12 @@ export default function SimpleMap(props){
     <div style={{ height: '100vh', width: '100%' }}>
       <GoogleMapReact
         ref={inputEl}
-        bootstrapURLKeys={{ key: "" }}
+        bootstrapURLKeys={{ key: "AIzaSyDkj7owYDfxbckqgy5kf7fD36SvI_UNLkk" }}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
       >
+        {userLocation}
+        {nearbyStations}
       </GoogleMapReact>
       <DirectionForm
         map={inputEl}

@@ -78,7 +78,6 @@ function App() {
       CurrentLocation={CurrentLocation}
       >
       </ButtonContainer>
-      <DirectionForm/>
 
     </div>
   );
