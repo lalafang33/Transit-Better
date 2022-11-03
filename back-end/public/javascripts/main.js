@@ -2,9 +2,9 @@ function initMap() {
   const directionsRenderer = new google.maps.DirectionsRenderer();
   const directionsService = new google.maps.DirectionsService();
   const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 14, 
-    center: {lat:49.2573798, lng:-123.4109806},
-  }); 
+    zoom: 14,
+    center: { lat: 49.2573798, lng: -123.4109806 },
+  });
 
   directionsRenderer.setMap(map);
 
@@ -32,13 +32,14 @@ function initMap() {
           };
 
           infoWindow.setPosition(pos);
-         
+
           // sets a pin on your location
 
           new google.maps.Marker({
             position: pos,
             map,
-            title: "Your Location"})
+            title: "Your Location"
+          })
           map.setCenter(pos);
         },
         () => {
@@ -51,25 +52,61 @@ function initMap() {
     }
   });
 
+  const showNearbyStationsButton = document.createElement("button");
+
+  showNearbyStationsButton.textContent = "Show Nearby Stops";
+  showNearbyStationsButton.classList.add("custom-map-control-button");
+  map.controls[google.maps.ControlPosition.TOP_CENTER].push(showNearbyStationsButton);
+  // showNearbyStationsButton.addEventListener("click", () => {
+  //   // Try HTML5 geolocation.
+  //   if (navigator.geolocation) {
+  //     navigator.geolocation.getCurrentPosition(
+  //       (position) => {
+  //         const pos = {
+  //           lat: position.coords.latitude,
+  //           lng: position.coords.longitude,
+  //         };
+
+  //         infoWindow.setPosition(pos);
+
+  //         // sets a pin on your location
+
+  //         new google.maps.Marker({
+  //           position: pos,
+  //           map,
+  //           title: "Your Location"
+  //         })
+  //         map.setCenter(pos);
+  //       },
+  //       () => {
+  //         handleLocationError(true, infoWindow, map.getCenter());
+  //       }
+  //     );
+  //   } else {
+  //     // If browser doesn't support Geolocation
+  //     handleLocationError(false, infoWindow, map.getCenter());
+  //   }
+  // });
+
 }
 
 
-function calculateAndDisplayRoute(directionsService, directionsRenderer){
-  const selectedMode = document.getElementById("mode").value; 
+function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+  const selectedMode = document.getElementById("mode").value;
   console.log(selectedMode);
   console.log("CONSOLES RIGHT HERE", document.getElementById("mode"))
   console.log(google.maps);
 
   directionsService
-  .route({
-    origin: document.getElementById("from").value,
-    destination: document.getElementById("to").value,
-    travelMode: google.maps.TravelMode[selectedMode],
-  })
-  .then((response) => {
-    directionsRenderer.setDirections(response);
-  })
-  .catch((e)=> console.error("Direction request failed" + e)); 
+    .route({
+      origin: document.getElementById("from").value,
+      destination: document.getElementById("to").value,
+      travelMode: google.maps.TravelMode[selectedMode],
+    })
+    .then((response) => {
+      directionsRenderer.setDirections(response);
+    })
+    .catch((e) => console.error("Direction request failed" + e));
 }
 
 // Handles Geolocation errors
