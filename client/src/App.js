@@ -1,9 +1,7 @@
 import { useState } from "react";
 import axios from "axios"
 import './App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import DirectionForm from './components/DirectionForm';
-import la_center from './const/la_center';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import SimpleMap from './components/SimpleMap';
 import ButtonContainer from "./components/ButtonContainer";
 import CurrentLocation from './components/CurrentLocation';
