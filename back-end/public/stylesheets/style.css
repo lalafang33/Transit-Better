@@ -1,6 +1,4 @@
-#map  {
-  height: 60%; 
-}
+
 
 html, 
 body {
@@ -9,11 +7,3 @@ body {
   padding:0; 
 }
 
-#floating-panel {
-  position: relative; 
-  top: 10px;
-  left: 0%;
-  z-index: 5; 
-  border: 1px solid #999; 
-  text-align: center; 
-}
