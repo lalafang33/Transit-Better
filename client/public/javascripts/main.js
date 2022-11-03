@@ -50,12 +50,6 @@ function initMap() {
     }
   });
 
-  const showNearbyStationsButton = document.createElement("button");
-
-  showNearbyStationsButton.textContent = "Show Nearby Stops";
-  showNearbyStationsButton.classList.add("custom-map-control-button");
-  map.controls[google.maps.ControlPosition.TOP_CENTER].push(showNearbyStationsButton);
-
 
 }
 
