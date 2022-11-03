@@ -1,0 +1,18 @@
+.button {
+  border-radius: 1rem;
+  border: 0;
+  font-size: .9rem;
+  height: 2rem;
+  line-height: 1.2rem;
+  margin-right: 1rem;
+  width: 8rem;
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgb(9, 4, 4);
+  color: black;
+  background-color: transparent;
+}
+
+.button:hover {
+  background-color: green;
+}
