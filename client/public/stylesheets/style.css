@@ -1,6 +1,3 @@
-.App {
-  text-align: center;
-}
 #map  {
   height: 60%; 
 }
@@ -19,10 +16,4 @@ body {
   z-index: 5; 
   border: 1px solid #999; 
   text-align: center; 
-}
-
-.location-btn {
-  position: relative;
-  border: 4px solid #080800
-
 }
