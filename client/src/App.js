@@ -18,7 +18,7 @@ function App() {
 
   const getNearbyStations = () => {
 
-    const apiKey = "39gelvG0Ia_t8x2pYhzn0wwisBZdWBMGaj1kEGC4VFA"; // INSERT API KEY HERE OR SET UP .ENV DO NOT PUSH APIKEY TO GITHUB
+    const apiKey = ""; // INSERT API KEY HERE OR SET UP .ENV DO NOT PUSH APIKEY TO GITHUB
     //const userCoords = "49.259832294,-123.109499562"
     const userCoords = `${userLat},${userLong}`
     console.log("making axios.get request for nearby stations by location")
@@ -39,6 +39,8 @@ function App() {
         alert("Sorry, Geolocation is not supported by this browser."); 
         }
       }
+
+
     
     const posError = () => {
       if (navigator.permissions) {
@@ -56,7 +58,9 @@ function App() {
       let lat = position.coords.latitude 
       let long = position.coords.longitude 
       setuserLat(lat) 
-      setuserLong(long) 
+      setuserLong(long)
+      .panTo({lat: userLat, lng: userLong})
+
     }
 
     getPosition();
