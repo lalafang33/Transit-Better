@@ -1,11 +1,12 @@
 import { DirectionsRenderer, DirectionsService, GoogleMap } from '@react-google-maps/api';
 // use state -> onchange 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 export default function DirectionForm({map}) {
 
   const [mode, setMode] = useState("TRANSIT")
   const [renderer, setRenderer] = useState()
   const [service, setService] = useState()
+  const panelEl = useRef(null);
 
   useEffect(()=> {
     setTimeout(()=>{
@@ -46,10 +47,13 @@ export default function DirectionForm({map}) {
     })
     .then((response) => {
       DirectionsRenderer.setDirections(response);
-      console.log(response)
+      const panel = panelEl.current;
+      DirectionsRenderer.setPanel(panel)
+
     })
     .catch((e)=> console.error("Direction request failed" + e)); 
   }
+
   return(
     <div id="floating-panel">
       <div>
@@ -67,6 +71,7 @@ export default function DirectionForm({map}) {
           <option value="TRANSIT"> Transit</option>
         </select>
       </div>
+      <div ref={panelEl}></div>
     </div>
   )
 }

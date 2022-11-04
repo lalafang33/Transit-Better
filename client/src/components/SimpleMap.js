@@ -13,7 +13,7 @@ import CurrentLocation from "./CurrentLocation";
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
-export default function SimpleMap(props){
+export default function SimpleMap(props) {
 
 
   const defaultProps = {
@@ -24,12 +24,13 @@ export default function SimpleMap(props){
     zoom: 11
   };
 
-  const nearbyStations = props.nearbyStations.map((station, index) => {
-    return(<Marker
-    key={index}
-    lat={station.place.location.lat}
-    lng={station.place.location.lng}
-    text={station.place.name}
+  const nearbyStations = props.nearbyStations.map((station) => {
+    return (<Marker
+      key={station.place.id}
+      lat={station.place.location.lat}
+      lng={station.place.location.lng}
+      text={station.place.name}
+      onClick={() => { props.getStationSchedule(station.place.id) }}
     />)
   })
 
@@ -37,30 +38,30 @@ export default function SimpleMap(props){
 
   if (props.userLat && props.userLong) {
 
-  userData = [{lat: props.userLat, lng: props.userLong }]
+    userData = [{ lat: props.userLat, lng: props.userLong }]
 
- };
+  };
 
   const userLocation = userData.map((user, index) => {
-    return(<LocationPin
+    return (<Marker
       key={index}
       lat={user.lat}
       lng={user.lng}
       text="Current Location"
-      />)
+    />)
   })
 
 
-    const inputEl = useRef(null);
-  
+  const inputEl = useRef(null);
+
 
 
   return (
     // Important! Always set the container height explicitly
     <div style={{ height: '100vh', width: '100%' }}>
       <GoogleMapReact
+        bootstrapURLKeys={{ key: "" }}
         ref={inputEl}
-        bootstrapURLKeys={{ key: "AIzaSyDkj7owYDfxbckqgy5kf7fD36SvI_UNLkk" }}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
       >

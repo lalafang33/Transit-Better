@@ -5,12 +5,20 @@ import DirectionsBusIcon from '@mui/icons-material/DirectionsBus';
 
 
 
+<<<<<<< HEAD
 const Marker = ({ text, onClick }) => (
   <DirectionsBusIcon
     color="primary"
     fontSize="medium"
     alt={text}
     onClick={onClick}
+=======
+const Marker = (props) => (
+  <Wrapper
+    alt={props.text}
+    key={props.key}
+    onClick={props.onClick}
+>>>>>>> main
   />
 );
 
