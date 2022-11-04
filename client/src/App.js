@@ -1,15 +1,11 @@
 import { useState } from "react";
 import axios from "axios"
 import './App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import DirectionForm from './components/DirectionForm';
-import la_center from './const/la_center';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import SimpleMap from './components/SimpleMap';
 import ButtonContainer from "./components/ButtonContainer";
 import CurrentLocation from './components/CurrentLocation';
 import StopSchedule from "./components/StopSchedule";
-
-
 
 
 function App() {
@@ -21,7 +17,7 @@ function App() {
   const [stopSchedule, setStopSchedule] = useState([]);
 
 
-  const apiKey = "HERE-API-KEY"; // INSERT API KEY HERE OR SET UP .ENV DO NOT PUSH APIKEY TO GITHUB
+  const apiKey = ""; // INSERT API KEY HERE OR SET UP .ENV DO NOT PUSH APIKEY TO GITHUB
 
   const getNearbyStations = () => {
     const userCoords = `${userLat},${userLong}`
@@ -94,7 +90,7 @@ function App() {
       >
       </ButtonContainer>
       <StopSchedule stopSchedule={stopSchedule}/>
-      <DirectionForm />
+
 
     </div>
   );
