@@ -43,7 +43,7 @@ export default function SimpleMap(props) {
   };
 
   const userLocation = userData.map((user, index) => {
-    return (<Marker
+    return (<LocationPin
       key={index}
       lat={user.lat}
       lng={user.lng}

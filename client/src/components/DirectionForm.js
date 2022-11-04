@@ -1,6 +1,11 @@
 import { DirectionsRenderer, DirectionsService, GoogleMap } from '@react-google-maps/api';
 // use state -> onchange 
 import { useEffect, useState, useRef } from "react"
+import { OutlinedInput, NativeSelect, MenuItem, Select } from '@mui/material';
+import './DirectionForm.css'
+
+
+
 export default function DirectionForm({map}) {
 
   const [mode, setMode] = useState("TRANSIT")
@@ -57,21 +62,21 @@ export default function DirectionForm({map}) {
   return(
     <div id="floating-panel">
       <div>
-        <input type="text" id="from" placeholder="Origin" onChange={event => origin(event.target.value)}/>
+        <OutlinedInput type="text" id="from" placeholder="Origin" onChange={event => origin(event.target.value)}/>
       </div>
       <div>
-      <input type="text" id="to" placeholder="Destination" onChange={event => destination(event.target.value)}/>
+      <OutlinedInput type="text" id="to" placeholder="Destination" onChange={event => destination(event.target.value)}/>
       </div>
       <div>
-        <b> Mode of Travel {mode} </b>
-        <select id="mode" onChange={event => selectedMode(event.target.value)}>
-          <option value="DRIVING"> Driving</option>
-          <option value="WALKING"> Walking</option>
-          <option value="BICYCLING"> Bicycling</option>
-          <option value="TRANSIT"> Transit</option>
-        </select>
+        <b> Mode of Travel </b>
+        <Select id="mode" labelId="demo-controlled-open-select-label" onChange={event => selectedMode(event.target.value)}>
+          <MenuItem value={"DRIVING"}> Driving</MenuItem>
+          <MenuItem value="WALKING"> Walking</MenuItem>
+          <MenuItem value="BICYCLING"> Bicycling</MenuItem>
+          <MenuItem value="TRANSIT"> Transit</MenuItem>
+        </Select>
       </div>
-      <div ref={panelEl}></div>
+      <div id="direction-panel" ref={panelEl}></div>
     </div>
   )
 }

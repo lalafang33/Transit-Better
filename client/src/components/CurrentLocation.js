@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import googleMapReact from "google-map-react";
+import './main-container.css'
 
 
 export default function CurrentLocation() {

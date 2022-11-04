@@ -1,4 +1,5 @@
 import StopScheduleItem from "./StopScheduleItem";
+import './StopSchedule.css'
 
 export default function StopSchedule(props){
 
