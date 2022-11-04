@@ -18,11 +18,12 @@ export default function SimpleMap(props){
   };
 
   const nearbyStations = props.nearbyStations.map((station, index) => {
-    return(<Marker
-    key={index}
-    lat={station.place.location.lat}
-    lng={station.place.location.lng}
-    text={station.place.name}
+    return(
+    <Marker
+      key={index}
+      lat={station.place.location.lat}
+      lng={station.place.location.lng}
+      text={station.place.name}
     />)
   })
 
@@ -35,16 +36,16 @@ export default function SimpleMap(props){
  };
 
   const userLocation = userData.map((user, index) => {
-    return(<Marker
+    return(
+    <Marker
       key={index}
       lat={user.lat}
       lng={user.lng}
       text="Current Location"
-      />)
+    />)
   })
 
-
-    const inputEl = useRef(null);
+  const inputEl = useRef(null);
   
 
 
@@ -53,9 +54,12 @@ export default function SimpleMap(props){
     <div style={{ height: '100vh', width: '100%' }}>
       <GoogleMapReact
         ref={inputEl}
+        bootstrapURLKeys={{ key: "AIzaSyBJcuaSVdI86sL8eyTV1ZyIMHD10zG8nGo" }}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
       >
+      {userLocation}
+      {nearbyStations}
       </GoogleMapReact>
       <DirectionForm
         map={inputEl}
