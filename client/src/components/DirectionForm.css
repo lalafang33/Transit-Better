@@ -1,0 +1,9 @@
+#floating-panel {
+  margin: 4%;
+  border: none; 
+}
+
+#direction-panel {
+  margin: 25%;
+  flex-direction: row;
+}

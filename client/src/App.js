@@ -5,7 +5,8 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import SimpleMap from './components/SimpleMap';
 import ButtonContainer from "./components/ButtonContainer";
 import CurrentLocation from './components/CurrentLocation';
-import StopSchedule from "./components/StopSchedule";
+import StopSchedule from "./components/StopSchedule"; 
+import '../src/components/main-container.css'
 
 function App() {
   console.log("APP COMPONENT")
@@ -86,10 +87,9 @@ function App() {
       <ButtonContainer
         getNearbyStations={getNearbyStations}
         CurrentLocation={CurrentLocation}
-      >
-      </ButtonContainer>
-      <StopSchedule stopSchedule={stopSchedule}/>
-
+     />
+      <StopSchedule 
+      stopSchedule={stopSchedule}/>
     </div>
   );
 }
