@@ -10,7 +10,7 @@ export default function Loading() {
 
   return (
     <div id="logo-container">
-      <img src={TransitBetter} width={450} height={450} alt="transit-logo" />
+      <img src={TransitBetter} width={420} height={420} alt="transit-logo" />
       <span id="logo-text">Transit Better</span>
       <div id="loading-bubbles">
         <LoadingBubbles/>
