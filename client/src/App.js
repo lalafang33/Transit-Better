@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios"
 import './App.css';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
@@ -6,15 +6,30 @@ import SimpleMap from './components/SimpleMap';
 import ButtonContainer from "./components/ButtonContainer";
 import CurrentLocation from './components/CurrentLocation';
 import StopSchedule from "./components/StopSchedule"; 
+import Loading from "./components/LoadingScreen";
 import '../src/components/main-container.css'
 
 function App() {
   console.log("APP COMPONENT")
 
+
   const [nearbyStations, setNearbyStations] = useState([])
   const [userLat, setuserLat] = useState();
   const [userLong, setuserLong] = useState();
   const [stopSchedule, setStopSchedule] = useState([]);
+  const [loading, setLoading] = useState(true);
+  
+  const removeLoadColor = () => {
+    document.body.classList.remove('loadingscreen')
+  }
+
+  useEffect(() => {
+      setTimeout(() => {
+          setLoading(false)
+          removeLoadColor()
+      }, 4850);
+  }, []);
+
 
 
   const apiKey = ""; // INSERT API KEY HERE OR SET UP .ENV DO NOT PUSH APIKEY TO GITHUB
@@ -75,21 +90,25 @@ function App() {
 
 
   return (
-    <div className="App">
-      <h2> Hello </h2>
-      <CurrentLocation />
-      <SimpleMap
-        nearbyStations={nearbyStations}
-        userLat={userLat}
-        userLong={userLong}
-        getStationSchedule={getStationSchedule}
-      />
-      <ButtonContainer
-        getNearbyStations={getNearbyStations}
-        CurrentLocation={CurrentLocation}
-     />
-      <StopSchedule 
-      stopSchedule={stopSchedule}/>
+    <div>
+      {loading ? (<Loading />) : 
+        (<div className="App">
+          <h2> Hello </h2>
+          <CurrentLocation />
+          <SimpleMap
+            nearbyStations={nearbyStations}
+            userLat={userLat}
+            userLong={userLong}
+            getStationSchedule={getStationSchedule}
+          />
+          <ButtonContainer
+            getNearbyStations={getNearbyStations}
+            CurrentLocation={CurrentLocation}
+          />
+          <StopSchedule 
+          stopSchedule={stopSchedule}/>
+         </div>)
+      }
     </div>
   );
 }
