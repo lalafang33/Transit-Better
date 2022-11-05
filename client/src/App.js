@@ -23,12 +23,12 @@ function App() {
     document.body.classList.remove('loadingscreen')
   }
 
-  // useEffect(() => {
-  //     setTimeout(() => {
-  //         setLoading(false)
-  //         removeLoadColor()
-  //     }, 5000);
-  // }, []);
+  useEffect(() => {
+      setTimeout(() => {
+          setLoading(false)
+          removeLoadColor()
+      }, 5000);
+  }, []);
 
 
 
