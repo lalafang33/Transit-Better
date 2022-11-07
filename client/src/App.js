@@ -78,8 +78,8 @@ function App() {
     }
 
     const showPosition = (position) => {
-      let lat = position.coords.latitude
-      let long = position.coords.longitude
+      const lat = position.coords.latitude
+      const long = position.coords.longitude
       setuserLat(lat)
       setuserLong(long)
     }
@@ -90,7 +90,7 @@ function App() {
 
 
   return (
-    <div>
+    <>
       {loading ? (<Loading />) : 
         (<div className="App">
           <h2> Hello </h2>
@@ -109,7 +109,7 @@ function App() {
           stopSchedule={stopSchedule}/>
          </div>)
       }
-    </div>
+    </>
   );
 }
 export default App;
