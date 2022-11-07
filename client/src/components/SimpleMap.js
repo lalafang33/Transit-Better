@@ -62,7 +62,7 @@ export default function SimpleMap(props) {
     <div id="map">
       <GoogleMapReact
         style={{ height: '100vh', width: 'this.state.progress', position: 'relative' }}
-        bootstrapURLKeys={{ key: "AIzaSyBJcuaSVdI86sL8eyTV1ZyIMHD10zG8nGo" }}
+        bootstrapURLKeys={{ key: "" }}
         ref={inputEl}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
