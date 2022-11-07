@@ -5,6 +5,7 @@ import DirectionForm from "./DirectionForm";
 import { useRef } from "react";
 import LocationPin from "./LocationPin";
 import CurrentLocation from "./CurrentLocation";
+import './DirectionForm.css'
 // import dotenv from "dotenv"
 // dotenv.config()
 
@@ -58,9 +59,10 @@ export default function SimpleMap(props) {
 
   return (
     // Important! Always set the container height explicitly
-    <div style={{ height: '100vh', width: '100%' }}>
+    <div id="map">
       <GoogleMapReact
-        bootstrapURLKeys={{ key: "" }}
+        style={{ height: '100vh', width: 'this.state.progress', position: 'relative' }}
+        bootstrapURLKeys={{ key: "AIzaSyBJcuaSVdI86sL8eyTV1ZyIMHD10zG8nGo" }}
         ref={inputEl}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
@@ -68,9 +70,11 @@ export default function SimpleMap(props) {
         {userLocation}
         {nearbyStations}
       </GoogleMapReact>
+      <div>
       <DirectionForm
         map={inputEl}
       />
+       </div>
     </div>
   );
 }

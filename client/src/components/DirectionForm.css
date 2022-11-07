@@ -1,9 +1,41 @@
 #floating-panel {
-  margin: 4%;
-  border: none; 
+  background: rgba(255,255,255,0.8);
+  border-radius: 8px;
+  box-sizing: border-box;
+  border-bottom: 1px solid transparent;
+  transition-duration: .3s;
+  border: 2px solid white;
+  padding: 1em;
+  height: 11em;
+  width: 15em;
+  margin: 1em;
+  position: absolute;
+  top: 4em;
 }
 
 #direction-panel {
-  margin: 25%;
   flex-direction: row;
+  position: absolute;
+  border-radius: 20px;
+  top: 3.8em;
+  width: 30%;
+  margin: none;
+  background: white;
+  left: 70%;
+}
+
+#to {
+  color: black;
+
+}
+
+#direction-form {
+  justify-content: space-between;
+}
+#map {
+  /* width: 70%;  */
+}
+
+#mode-font{
+  font-size:10px;
 }
