@@ -6,22 +6,24 @@
   transition-duration: .3s;
   border: 2px solid white;
   padding: 1em;
-  height: 11em;
-  width: 15em;
+  height: 13em;
+  width: 20%;
   margin: 1em;
   position: absolute;
-  top: 4em;
+  top: 2em;
+  left: 75%;
 }
 
 #direction-panel {
-  flex-direction: row;
+  display:flex;
+  flex-direction: column;
+  box-shadow: 0 1px 2px rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
   position: absolute;
-  border-radius: 20px;
-  top: 3.8em;
-  width: 30%;
+  top: 15em;
+  width: 20%;
   margin: none;
   background: white;
-  left: 70%;
+  left: 80%;
 }
 
 #to {
@@ -29,13 +31,36 @@
 
 }
 
-#direction-form {
-  justify-content: space-between;
-}
-#map {
-  /* width: 70%;  */
-}
 
 #mode-font{
   font-size:10px;
 }
+
+.panel-open  #map {
+  width: 80%
+}
+
+.panel-open  #from {
+  width: 23em; 
+}
+
+.panel-open  #to {
+  width: 23em; 
+}
+
+.panel-open  #floating-panel {
+  border-bottom: black 2em;
+  top: 0.2em;
+  height: 6em;
+  left: 80%; 
+
+}
+
+#mode-icon {
+  padding-right: 1.5em; 
+}
+#car-icon {
+  padding-right: 1.5em; 
+  padding-left: 1.5em;
+}
+

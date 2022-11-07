@@ -3,6 +3,11 @@ import { DirectionsRenderer, DirectionsService, GoogleMap } from '@react-google-
 import { useEffect, useState, useRef } from "react"
 import { OutlinedInput, NativeSelect, MenuItem, Select, FormControl } from '@mui/material';
 import './DirectionForm.css'
+import DirectionsWalkIcon from '@mui/icons-material/DirectionsWalk';
+import DirectionsBikeIcon from '@mui/icons-material/DirectionsBike';
+import DirectionsTransitIcon from '@mui/icons-material/DirectionsTransit';
+import DriveEtaIcon from '@mui/icons-material/DriveEta';
+
 
 
 
@@ -53,7 +58,8 @@ export default function DirectionForm({map}) {
     .then((response) => {
       DirectionsRenderer.setDirections(response);
       const panel = panelEl.current;
-      DirectionsRenderer.setPanel(panel)
+      DirectionsRenderer.setPanel(panel);
+      document.body.className += " panel-open";
 
     })
     .catch((e)=> console.error("Direction request failed" + e)); 
@@ -65,16 +71,22 @@ export default function DirectionForm({map}) {
     <div id="direction-form">
     <div id="floating-panel">
       <div>
+        <DriveEtaIcon id="car-icon" /> 
+        <DirectionsWalkIcon id="mode-icon"/>
+        <DirectionsBikeIcon id="mode-icon"/>
+        <DirectionsTransitIcon id="mode-icon"/>
+      </div>
+      <br/>
+      <div>
         <OutlinedInput label={'margin="dense"'}inputProps={{style: {fontSize: 10, color: "black"} }} type="text" id="from" placeholder="Origin" onChange={event => origin(event.target.value)}/>
       </div>
       <div>
         <OutlinedInput label={'margin="dense"'} inputProps={{style: {fontSize: 10, color: "black"} }} type="text" id="to" placeholder="Destination" onChange={event => destination(event.target.value)}/>
       </div>
       <div>
-        <br/>
         <b id="mode-font"> Mode of Travel  </b>
         <Select id="mode" style={{ width: 80, height:30, fontSize: 10 }} labelId="demo-controlled-open-select-label" onChange={event => selectedMode(event.target.value)}>
-          <MenuItem value="DRIVING"> Driving</MenuItem>
+          <MenuItem value="DRIVING"> Driving </MenuItem>
           <MenuItem value="WALKING"> Walking</MenuItem>
           <MenuItem value="BICYCLING"> Bicycling</MenuItem>
           <MenuItem value="TRANSIT"> Transit</MenuItem>
