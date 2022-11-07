@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios"
 import './App.css';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
@@ -6,15 +6,30 @@ import SimpleMap from './components/SimpleMap';
 import ButtonContainer from "./components/ButtonContainer";
 import CurrentLocation from './components/CurrentLocation';
 import StopSchedule from "./components/StopSchedule"; 
+import Loading from "./components/LoadingScreen";
 import '../src/components/main-container.css'
 
 function App() {
   console.log("APP COMPONENT")
 
+
   const [nearbyStations, setNearbyStations] = useState([])
   const [userLat, setuserLat] = useState();
   const [userLong, setuserLong] = useState();
   const [stopSchedule, setStopSchedule] = useState([]);
+  const [loading, setLoading] = useState(true);
+  
+  const removeLoadColor = () => {
+    document.body.classList.remove('loadingscreen')
+  }
+
+  useEffect(() => {
+      setTimeout(() => {
+          setLoading(false)
+          removeLoadColor()
+      }, 5000);
+  }, []);
+
 
 
   const apiKey = "39gelvG0Ia_t8x2pYhzn0wwisBZdWBMGaj1kEGC4VFA"; // INSERT API KEY HERE OR SET UP .ENV DO NOT PUSH APIKEY TO GITHUB
@@ -63,8 +78,8 @@ function App() {
     }
 
     const showPosition = (position) => {
-      let lat = position.coords.latitude
-      let long = position.coords.longitude
+      const lat = position.coords.latitude
+      const long = position.coords.longitude
       setuserLat(lat)
       setuserLong(long)
     }
@@ -75,22 +90,26 @@ function App() {
 
 
   return (
-    <div className="App">
-      <h2> Hello </h2>
-      <CurrentLocation />
-      <SimpleMap
-        nearbyStations={nearbyStations}
-        userLat={userLat}
-        userLong={userLong}
-        getStationSchedule={getStationSchedule}
-      />
-      <ButtonContainer
-        getNearbyStations={getNearbyStations}
-        CurrentLocation={CurrentLocation}
-     />
-      <StopSchedule 
-      stopSchedule={stopSchedule}/>
-    </div>
+    <>
+      {loading ? (<Loading />) : 
+        (<div className="App">
+          <h2> Hello </h2>
+          <CurrentLocation />
+          <SimpleMap
+            nearbyStations={nearbyStations}
+            userLat={userLat}
+            userLong={userLong}
+            getStationSchedule={getStationSchedule}
+          />
+          <ButtonContainer
+            getNearbyStations={getNearbyStations}
+            CurrentLocation={CurrentLocation}
+          />
+          <StopSchedule 
+          stopSchedule={stopSchedule}/>
+         </div>)
+      }
+    </>
   );
 }
 export default App;
