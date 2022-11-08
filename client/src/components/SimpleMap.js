@@ -1,4 +1,4 @@
-import { React, useContext, useState } from "react";
+import { React, useContext, useState, useEffect } from "react";
 import GoogleMapReact from 'google-map-react';
 import Marker from "./Marker";
 import DirectionForm from "./DirectionForm";
@@ -17,13 +17,12 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
 export default function SimpleMap(props) {
 
 
-  const defaultProps = {
-    center: {
+ const center = {
       lat: 49.2712,
       lng: -123.1340
-    },
-    zoom: 11
-  };
+    };
+
+  const zoom = 11;
 
   const nearbyStations = props.nearbyStations.map((station) => {
     return (<Marker
@@ -52,8 +51,20 @@ export default function SimpleMap(props) {
     />)
   })
 
-
   const inputEl = useRef(null);
+
+  // const MapPanToClick = () => {
+    
+  
+  //   const mapRef = useRef()
+  
+  //   useEffect(() => {
+  //    if (mapRef.current?.panTo && position)
+  //       mapRef.current?.panTo(position)
+  
+  //   }, [position])
+  // }
+  
 
 
 
@@ -64,8 +75,8 @@ export default function SimpleMap(props) {
         style={{ height: '100vh', width: 'this.state.progress', position: 'relative' }}
         bootstrapURLKeys={{ key: "" }}
         ref={inputEl}
-        defaultCenter={defaultProps.center}
-        defaultZoom={defaultProps.zoom}
+        center={ {lat: props.userLat, lng: props.userLong } || { lat: 49.2712, lng: -123.1340 }}
+        zoom={zoom}
       >
         {userLocation}
         {nearbyStations}
