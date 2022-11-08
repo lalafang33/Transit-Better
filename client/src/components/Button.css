@@ -1,17 +1,25 @@
 .button {
-  border-radius: 1rem;
-  border: 0;
-  font-size: .9rem;
-  height: 2rem;
-  line-height: 1.2rem;
-  margin-right: 1rem;
-  width: 8rem;
-  border-width: 2px;
-  border-style: solid;
-  border-color: rgb(9, 4, 4);
-  color: black;
-  background-color: transparent;
-}
+background-color: rgba(255,255,255,0.8);
+border-radius: 8px;
+box-sizing: border-box;
+border-bottom: 1px solid transparent;
+transition-duration: .3s;
+border-radius: 1rem;
+border: 0;
+font-size: .9rem;
+height: 2rem;
+line-height: 1.2rem;
+margin-right: 1rem;
+border-width: 2px;
+border-style: solid;
+border-color:rgba(255,255,255,0.8);
+color: black;
+margin: 1em;
+text-align: center; 
+line-height: 10px;
+padding: 0.7em;
+} 
+
 
 .button:hover {
   background-color: green;

@@ -61,6 +61,7 @@ export default function SimpleMap(props) {
     // Important! Always set the container height explicitly
     <div id="map">
       <GoogleMapReact
+        id="google-map"
         style={{ height: '100vh', width: 'this.state.progress', position: 'relative' }}
         bootstrapURLKeys={{ key: "" }}
         ref={inputEl}

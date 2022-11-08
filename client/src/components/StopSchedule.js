@@ -1,5 +1,6 @@
 import StopScheduleItem from "./StopScheduleItem";
 import './StopSchedule.css'
+import './DirectionForm.css'
 
 export default function StopSchedule(props){
 
@@ -29,7 +30,7 @@ const stopScheduleComponents = props.stopSchedule.map((departure, index) => {
 
 return(
   <div className="stop-schedule">
-    <h3>Upcoming Departures</h3>
+    <p>Upcoming Departures</p>
     {stopScheduleComponents}
   </div>
 )
