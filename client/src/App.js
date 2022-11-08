@@ -92,8 +92,8 @@ function App() {
   return (
     <>
       {loading ? (<Loading />) : 
-        (<div className="App">
-          <CurrentLocation />
+        (<div>
+          <CurrentLocation/>
           <SimpleMap
             nearbyStations={nearbyStations}
             userLat={userLat}

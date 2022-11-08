@@ -1,7 +1,15 @@
-.button-container {
+/* .button-container {
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 1%;
 
+} */
+
+.button-container {
+  display: flex;
+  left: 75%;
+  /* width: 5em;  */
+  position: absolute;
+  top: 0.7em;
 }
