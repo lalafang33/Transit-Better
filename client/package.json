@@ -28,7 +28,12 @@
     "sass": "^1.56.0",
     "styled-component": "^2.8.0",
     "styled-components": "^5.3.6",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4","@chakra-ui/icons": "^2.0.11",
+    "@chakra-ui/input": "^2.0.12",
+    "@chakra-ui/react": "^2.3.7",
+    "formik": "^2.2.9",
+    "react-router": "^6.4.3",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "react-scripts start",
