@@ -78,18 +78,31 @@ export default function DirectionForm({map}) {
       </div>
       <br/>
       <div>
-        <OutlinedInput label={'margin="dense"'}inputProps={{style: {fontSize: 10, color: "black"} }} type="text" id="from" placeholder="Origin" onChange={event => origin(event.target.value)}/>
+        <OutlinedInput 
+          label={'margin="dense"'}
+          inputProps={{style: {fontSize: 10, color: "black"} }} 
+          type="text" id="from" 
+          placeholder="Origin" 
+          onChange={event => origin(event.target.value)}/>
       </div>
       <div>
-        <OutlinedInput label={'margin="dense"'} inputProps={{style: {fontSize: 10, color: "black"} }} type="text" id="to" placeholder="Destination" onChange={event => destination(event.target.value)}/>
+        <OutlinedInput 
+          label={'margin="dense"'} 
+          inputProps={{style: {fontSize: 10, color: "black"} }} 
+          type="text" id="to" 
+          placeholder="Destination" 
+          onChange={event => destination(event.target.value)}/>
       </div>
       <div>
         <b id="mode-font"> Mode of Travel  </b>
-        <Select id="mode" style={{ width: 80, height:30, fontSize: 10 }} labelId="demo-controlled-open-select-label" onChange={event => selectedMode(event.target.value)}>
-          <MenuItem value="DRIVING"> Driving </MenuItem>
-          <MenuItem value="WALKING"> Walking</MenuItem>
-          <MenuItem value="BICYCLING"> Bicycling</MenuItem>
-          <MenuItem value="TRANSIT"> Transit</MenuItem>
+        <Select id="mode" 
+          style={{ width: 80, height:30, fontSize: 10 }} 
+          labelId="demo-controlled-open-select-label" 
+          onChange={event => selectedMode(event.target.value)}>
+            <MenuItem value="DRIVING"> Driving </MenuItem>
+            <MenuItem value="WALKING"> Walking</MenuItem>
+            <MenuItem value="BICYCLING"> Bicycling</MenuItem>
+            <MenuItem value="TRANSIT"> Transit</MenuItem>
         </Select>
       </div>
     </div>

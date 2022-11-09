@@ -23,14 +23,22 @@ export default function SimpleMap(props) {
     };
 
   const zoom = 11;
+  
 
   const nearbyStations = props.nearbyStations.map((station) => {
+
+
+
     return (<Marker
       key={station.place.id}
       lat={station.place.location.lat}
       lng={station.place.location.lng}
       text={station.place.name}
-      onClick={() => { props.getStationSchedule(station.place.id) }}
+      onClick={() => {
+        props.getStationSchedule(station.place.id)
+        props.handleOpen()
+      
+        }}
     />)
   })
 
@@ -74,7 +82,7 @@ export default function SimpleMap(props) {
       <GoogleMapReact
         id="google-map"
         style={{ height: '100vh', width: 'this.state.progress', position: 'relative' }}
-        bootstrapURLKeys={{ key: "" }}
+        bootstrapURLKeys={{ key: "AIzaSyBVAn2esW_R4JPSRFLH1oyT5ppy91l-ECc" }}
         ref={inputEl}
         center={ {lat: props.userLat, lng: props.userLong } || { lat: 49.2712, lng: -123.1340 }}
         zoom={zoom}

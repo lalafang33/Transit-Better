@@ -1,39 +1,38 @@
 import StopScheduleItem from "./StopScheduleItem";
-import './StopSchedule.css'
-import './DirectionForm.css'
+import './StopSchedule.css';
+import './DirectionForm.css';
 
-export default function StopSchedule(props){
+export default function StopSchedule(props) {
 
-const stopScheduleComponents = props.stopSchedule.map((departure, index) => {
-  const timeString = new Date(departure.time).toLocaleTimeString()
-  
-  const convertFrom24To12Format = (time24) => {
-    const [sHours, minutes] = time24.match(/([0-9]{1,2}):([0-9]{2})/).slice(1);
-    const period = +sHours < 12 ? 'AM' : 'PM';
-    const hours = +sHours % 12 || 12;
-  
-    return `${hours}:${minutes} ${period}`;
-  }
+  const stopScheduleComponents = props.stopSchedule.map((departure, index) => {
+    const timeString = new Date(departure.time).toLocaleTimeString();
 
-  const convertedTime = convertFrom24To12Format(timeString)
+    const convertFrom24To12Format = (time24) => {
+      const [sHours, minutes] = time24.match(/([0-9]{1,2}):([0-9]{2})/).slice(1);
+      const period = +sHours < 12 ? 'AM' : 'PM';
+      const hours = +sHours % 12 || 12;
 
-  
-  return(
-    <StopScheduleItem
-    key={index} 
-    headsign={departure.transport.headsign}
-    category={departure.transport.category}
-    time={convertedTime}
-    />
-  )
-})
+      return `${hours}:${minutes} ${period}`;
+    };
 
-return(
-  <div className="stop-schedule">
-    <p>Upcoming Departures</p>
-    {stopScheduleComponents}
-  </div>
-)
+    const convertedTime = convertFrom24To12Format(timeString);
+
+
+    return (
+      <StopScheduleItem
+        key={index}
+        headsign={departure.transport.headsign}
+        category={departure.transport.category}
+        time={convertedTime}
+      />
+    );
+  });
+
+  return (
+    <div className="stop-schedule">
+      {stopScheduleComponents}
+    </div>
+  );
 
 
 
