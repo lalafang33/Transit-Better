@@ -44,7 +44,7 @@ function App() {
 
 
 
-  const apiKey = "39gelvG0Ia_t8x2pYhzn0wwisBZdWBMGaj1kEGC4VFA"; // INSERT API KEY HERE OR SET UP .ENV DO NOT PUSH APIKEY TO GITHUB
+  const apiKey = ""; // INSERT API KEY HERE OR SET UP .ENV DO NOT PUSH APIKEY TO GITHUB
 
   const getNearbyStations = () => {
     const userCoords = `${userLat},${userLong}`
