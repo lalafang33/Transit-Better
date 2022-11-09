@@ -82,7 +82,7 @@ export default function SimpleMap(props) {
       <GoogleMapReact
         id="google-map"
         style={{ height: '100vh', width: 'this.state.progress', position: 'relative' }}
-        bootstrapURLKeys={{ key: "" }}
+        bootstrapURLKeys={{ key: "AIzaSyDw_KKaipWhLFkYCM1Bp9D2LfFyS1nZeGE" }}
         ref={inputEl}
         center={ {lat: props.userLat, lng: props.userLong } || { lat: 49.2712, lng: -123.1340 }}
         zoom={zoom}

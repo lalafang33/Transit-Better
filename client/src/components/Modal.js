@@ -21,6 +21,8 @@ const style = {
 
 export default function BasicModal(props) {
 
+  console.log(props.stopSchedule)
+
 
 
   return (
@@ -33,7 +35,7 @@ export default function BasicModal(props) {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-           Upcoming Departures @ This Stop
+           Upcoming Departures:
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
            <StopSchedule stopSchedule={props.stopSchedule}/>
