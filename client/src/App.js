@@ -7,7 +7,9 @@ import ButtonContainer from "./components/ButtonContainer";
 import CurrentLocation from './components/CurrentLocation';
 import StopSchedule from "./components/StopSchedule"; 
 import Loading from "./components/LoadingScreen";
+import BasicModal from "./components/Modal";
 import '../src/components/main-container.css'
+
 
 function App() {
   console.log("APP COMPONENT")
@@ -18,7 +20,17 @@ function App() {
   const [userLong, setuserLong] = useState();
   const [stopSchedule, setStopSchedule] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   
+  
+
+
+
   const removeLoadColor = () => {
     document.body.classList.remove('loadingscreen')
   }
@@ -99,13 +111,20 @@ function App() {
             userLat={userLat}
             userLong={userLong}
             getStationSchedule={getStationSchedule}
+            open={open} 
+            handleOpen={handleOpen} 
+            handleClose={handleClose} 
           />
           <ButtonContainer
             getNearbyStations={getNearbyStations}
             CurrentLocation={CurrentLocation}
           />
-          <StopSchedule 
-          stopSchedule={stopSchedule}/>
+          <BasicModal 
+            stopSchedule={stopSchedule} 
+            open={open} 
+            handleOpen={handleOpen} 
+            handleClose={handleClose} 
+          />
          </div>)
       }
     </>

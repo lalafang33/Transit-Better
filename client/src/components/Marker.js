@@ -6,6 +6,12 @@ import DirectionsBusIcon from '@mui/icons-material/DirectionsBus';
 
 const Marker = (props) => (
   <DirectionsBusIcon
+    sx={{
+      "&:hover": {
+        color: "#049967",
+        cursor: "pointer"
+      }
+    }}
     color="primary"
     fontSize="medium"
     alt={props.text}

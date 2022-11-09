@@ -6,7 +6,7 @@ import './DirectionForm.css'
 export default function ButtonContainer(props) {
   return(
     <div className="button-container">
-      <Button text="Current Location" onClick={props.CurrentLocation}/>
+      <Button text="Current Location"/>
       <Button text="Show Nearby Stops" onClick={props.getNearbyStations}/>
     </div>
   )
