@@ -1,0 +1,30 @@
+.address-header {
+  font-size: 2em;
+  font-weight: 500;
+  text-align: center;
+  font-family: 'Chivo', sans-serif;
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+}
+
+.address-text {
+  font-size: 2em;
+  font-weight: 300;
+  text-align: center;
+  font-family: 'Chivo', sans-serif;
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+}
+
+.address-container {
+  align-self: auto;
+  flex: 0 1 auto;
+  width: 36.42%;
+  margin: auto;
+  margin-top: 5%;
+  border: 1cm black;
+  flex-direction: column;
+  justify-content: center;
+}

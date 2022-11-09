@@ -1,26 +1,103 @@
 .button {
-background-color: rgba(255,255,255,0.8);
-border-radius: 8px;
-box-sizing: border-box;
-border-bottom: 1px solid transparent;
-transition-duration: .3s;
-border-radius: 1rem;
-border: 0;
-font-size: .9rem;
-height: 2rem;
-line-height: 1.2rem;
-margin-right: 1rem;
-border-width: 2px;
-border-style: solid;
-border-color:rgba(255,255,255,0.8);
-color: black;
-margin: 1em;
-text-align: center; 
-line-height: 10px;
-padding: 0.7em;
-} 
+  background-color: rgba(255,255,255,0.8);
+  border-radius: 8px;
+  box-sizing: border-box;
+  border-bottom: 1px solid transparent;
+  transition-duration: .3s;
+  border-radius: 1rem;
+  border: 0;
+  font-size: .9rem;
+  height: 2rem;
+  line-height: 1.2rem;
+  margin-right: 1rem;
+  border-width: 2px;
+  border-style: solid;
+  border-color:rgba(255,255,255,0.8);
+  color: black;
+  margin: 1em;
+  text-align: center; 
+  line-height: 10px;
+  padding: 0.7em;
+  } 
+  
+  .address-button {
+  background-color: rgba(255,255,255,0.8);
+  border-radius: 8px;
+  box-sizing: border-box;
+  border-bottom: 1px solid transparent;
+  transition-duration: .3s;
+  border-radius: 1rem;
+  border: 0;
+  font-size: .9rem;
+  height: 3rem;
+  line-height: 1.2rem;
+  margin-right: 1rem;
+  border-width: 2px;
+  border-style: solid;
+  border-color:rgba(255,255,255,0.8);
+  color: black;
+  margin: 1em;
+  text-align: center; 
+  line-height: 10px;
+  padding: 0.7em;
+  }
+  
+  
+  .button:hover {
+    background-color: green;
+  }
+  
+  .back-button:hover {
+    background-color: green;
+  }
+  
+  .login-button-container {
+    display: flex;
+    right: 94%;
+    position: absolute;
+    top: 0.7em;
+  }
+  
+  
+  .address-button-container {
+    display: flex;
+    right: 90%;
+    position: absolute;
+    top: 0.7em;
+  }
 
+  .back-button-container {
+    display: flex;
+    right: 90%;
+    position: absolute;
+    top: 0.7em;
+  }
 
-.button:hover {
-  background-color: green;
-}
+ .back-button-container {
+    display: flex;
+    right: 90%;
+    position: absolute;
+    top: 0.7em;
+  }
+
+  .back-button {
+  background-color: rgba(255,255,255,0.8);
+  border-radius: 8px;
+  box-sizing: border-box;
+  border-bottom: 1px solid transparent;
+  transition-duration: .3s;
+  border-radius: 1rem;
+  border: 3px;
+  font-size: .9rem;
+  height: 2rem;
+  line-height: 1.2rem;
+  margin-right: 1rem;
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
+  color: black;
+  margin: 1em;
+  text-align: center; 
+  line-height: 10px;
+  padding: 0.7em;
+  }
